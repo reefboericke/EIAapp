@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\reefb\\source\\repos\\EIA\\EIA\\EIA\\EIA.csproj": {}
+    "C:\\Users\\reefb\\source\\repos\\EIA\\EIAapp\\EIA\\EIA\\EIA.csproj": {}
   },
   "projects": {
-    "C:\\Users\\reefb\\source\\repos\\EIA\\EIA\\EIA\\EIA.csproj": {
+    "C:\\Users\\reefb\\source\\repos\\EIA\\EIAapp\\EIA\\EIA\\EIA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\reefb\\source\\repos\\EIA\\EIA\\EIA\\EIA.csproj",
+        "projectUniqueName": "C:\\Users\\reefb\\source\\repos\\EIA\\EIAapp\\EIA\\EIA\\EIA.csproj",
         "projectName": "EIA",
-        "projectPath": "C:\\Users\\reefb\\source\\repos\\EIA\\EIA\\EIA\\EIA.csproj",
+        "projectPath": "C:\\Users\\reefb\\source\\repos\\EIA\\EIAapp\\EIA\\EIA\\EIA.csproj",
         "packagesPath": "C:\\Users\\reefb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\reefb\\source\\repos\\EIA\\EIA\\EIA\\obj\\",
+        "outputPath": "C:\\Users\\reefb\\source\\repos\\EIA\\EIAapp\\EIA\\EIA\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
