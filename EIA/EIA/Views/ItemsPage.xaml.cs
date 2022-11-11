@@ -41,5 +41,10 @@ namespace EIA.Views
         {
             searchResults.ItemsSource = DataService.GetSearchResults(e.NewTextValue);
         }
+
+        private void searchResults_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            Title = e.Item.ToString();
+        }
     }
 }

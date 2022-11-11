@@ -32,6 +32,8 @@
 
         <ListView Grid.Row="1"
                   x:Name="searchResults"
+                  SelectionMode="None"
+                  ItemTapped="searchResults_ItemTapped"
                   HorizontalOptions="Fill"
                   VerticalOptions="CenterAndExpand" />
     </Grid>
