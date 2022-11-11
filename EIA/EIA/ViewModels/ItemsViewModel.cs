@@ -17,6 +17,8 @@ namespace EIA.ViewModels
         public Command AddItemCommand { get; }
         public Command<Item> ItemTapped { get; }
 
+        public string query;
+
         public ItemsViewModel()
         {
             Title = "Search";
@@ -38,7 +40,9 @@ namespace EIA.ViewModels
                 var items = await DataStore.GetItemsAsync(true);
                 foreach (var item in items)
                 {
-                    Items.Add(item);
+                    if (item.Text.Contains(query)){
+                        Items.Add(item);
+                    }
                 }
             }
             catch (Exception ex)
@@ -79,6 +83,12 @@ namespace EIA.ViewModels
 
             // This will push the ItemDetailPage onto the navigation stack
             await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(ItemDetailViewModel.ItemId)}={item.Id}");
+        }
+
+        void OnSearch(object sender, EventArgs e)
+        {
+            SearchBar searchBar = (SearchBar)sender;
+            query = searchBar.Text;
         }
     }
 }

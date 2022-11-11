@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TeU5vGb1yauvDJuQIoD76UWnf+pCOB04cv9NgqagIr/1vSMkOocj4daUp75IP/hr+ji5/K+EIqPPXKIQo5QuBA==",
+  "dgSpecHash": "mftnuTjm8nL3SQfXIVHezAjDBO0xHf4pUvNbdcBoq/OYggPNONaVK7scycOshuOdtz43v4Q2firFgunjI64kWw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\reefb\\source\\repos\\EIA\\EIA\\EIA.Android\\EIA.Android.csproj",
+  "projectFilePath": "C:\\Users\\reefb\\source\\repos\\EIA\\EIAapp\\EIA\\EIA.Android\\EIA.Android.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\reefb\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\reefb\\.nuget\\packages\\xamarin.androidx.activity\\1.2.4.1\\xamarin.androidx.activity.1.2.4.1.nupkg.sha512",
