@@ -54,7 +54,8 @@
                                 Font="Bold,15"
                                 Margin="0,5,-60,5"
                                 BackgroundColor="#004F7E"   
-                                Clicked="AddToComparison"
+                                Command="{Binding AddToComparison}"
+                                CommandParameter="{Binding }"
                                 Text="Add"/>
                         </Grid>
                     </ViewCell>

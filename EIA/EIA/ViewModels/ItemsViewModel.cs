@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using SearchBarDemos.Services;
 
 namespace EIA.ViewModels
 {
@@ -16,6 +17,7 @@ namespace EIA.ViewModels
         public Command LoadItemsCommand { get; }
         public Command AddItemCommand { get; }
         public Command<Item> ItemTapped { get; }
+        public Command<string> AddToComparison { get; }
 
         public string query;
 
@@ -28,6 +30,8 @@ namespace EIA.ViewModels
             ItemTapped = new Command<Item>(OnItemSelected);
 
             AddItemCommand = new Command(OnAddItem);
+
+            AddToComparison = new Command<string>(OnAddToComparison);
         }
 
         async Task ExecuteLoadItemsCommand()
@@ -89,6 +93,15 @@ namespace EIA.ViewModels
         {
             SearchBar searchBar = (SearchBar)sender;
             query = searchBar.Text;
+        }
+
+        void OnAddToComparison(string ItemName)
+        {
+            string ItemID = DataService.GetIDByName(ItemName);
+            if(ItemID != null)
+            {
+                DataService.AddToComparison(ItemID);
+            }
         }
     }
 }

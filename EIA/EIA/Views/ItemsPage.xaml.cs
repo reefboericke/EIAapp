@@ -46,10 +46,5 @@ namespace EIA.Views
         {
             Title = e.Item.ToString();
         }
-
-        private void AddToComparison(object sender, EventArgs e)
-        {
-
-        }
     }
 }

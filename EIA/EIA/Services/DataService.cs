@@ -14,6 +14,11 @@ namespace SearchBarDemos.Services
             new Item { Id = Guid.NewGuid().ToString(), Text = "Electric Car", Description="Car powered by electric motor using various electricity sources." }
         };
 
+        public static List<Item> CurrentComparison { get; } = new List<Item>
+        {
+            new Item { Id = Guid.NewGuid().ToString(), Text = "Test", Description="Test desc"}
+        };
+
         public static List<string> GetSearchResults(string queryString)
         {
             List<string> ItemNames = new List<string>();
@@ -23,6 +28,29 @@ namespace SearchBarDemos.Services
             }
             var normalizedQuery = queryString?.ToLower() ?? "";
             return ItemNames.Where(f => f.ToLowerInvariant().Contains(normalizedQuery)).ToList();
+        }
+
+        public static string GetIDByName(string ItemName)
+        {
+            foreach (Item item in Items)
+            {
+                if (item.Text == ItemName)
+                {
+                    return item.Id;
+                }
+            }
+            return null;
+        }
+
+        public static void AddToComparison(string ItemID)
+        {
+            foreach (Item item in Items)
+            {
+                if (item.Id == ItemID)
+                {
+                    CurrentComparison.Add(item);
+                }
+            }
         }
     }
 }
