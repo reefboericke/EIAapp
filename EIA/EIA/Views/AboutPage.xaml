@@ -37,19 +37,15 @@
                         TextColor="White" />
             </StackLayout>
         </ScrollView>
-        <RefreshView Command="{Binding Refresh}"
-            Grid.Row="2">
-            <ListView x:Name="itemComparison"
-                ItemsSource="{Binding currentComparison}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Label Text="{Binding Text}"/>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </RefreshView>
+        <ListView Grid.Row="2"
+                x:Name="itemComparison"
+                ItemsSource="{Binding CurrentComparison}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding }"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 
 </ContentPage>

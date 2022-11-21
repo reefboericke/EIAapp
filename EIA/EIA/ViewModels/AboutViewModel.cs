@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using EIA.Models;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
+using System.Collections.ObjectModel;
 
 namespace EIA.ViewModels
 {
@@ -15,16 +16,16 @@ namespace EIA.ViewModels
     {
         public ICommand OpenWebCommand { get; }
         public ICommand GoToItems { get; }
-        public Command Refresh { get; }
 
-        public List<Item> currentComparison = new List<Item>();
+        ObservableCollection<String> currentComparison = new ObservableCollection<string>();
+        public ObservableCollection<String> CurrentComparison {  get { return currentComparison; } }
+
         public AboutViewModel()
         {
             Title = "Compare";
             OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamarin-quickstart"));
             GoToItems = new Command(OnGoToSearch);
-            Refresh = new Command(OnRefresh);
-            currentComparison.Add(new Item { Id = Guid.NewGuid().ToString(), Text = "test", Description = "Test desc" });
+            currentComparison.Add("Test");
         }
         public void OnAppearing()
         {
@@ -34,14 +35,6 @@ namespace EIA.ViewModels
         async void OnGoToSearch()
         {
             await Shell.Current.GoToAsync("//ItemsPage");
-        }
-
-        void OnRefresh()
-        {
-            foreach(Item item in DataService.CurrentComparison)
-            {
-                currentComparison.Add(item);
-            }
         }
     }
 }
