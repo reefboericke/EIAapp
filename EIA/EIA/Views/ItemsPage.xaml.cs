@@ -32,16 +32,19 @@ namespace EIA.Views
             _viewModel.OnAppearing();
         }
 
+        // Updates the search results when search pressed
         private void OnSearch(object sender, EventArgs e)
         {
             searchResults.ItemsSource = DataService.GetSearchResults(searchBar.Text);
         }
 
+        // Updates the search results when text updated
         private void OnTextChanged(object sender, TextChangedEventArgs e)
         {
             searchResults.ItemsSource = DataService.GetSearchResults(e.NewTextValue);
         }
 
+        // Reacts to an item in the search results being tapped
         private void searchResults_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             Title = e.Item.ToString();

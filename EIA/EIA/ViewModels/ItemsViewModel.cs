@@ -13,18 +13,31 @@ namespace EIA.ViewModels
     {
         private Item _selectedItem;
 
+        // Defines the list of items to display
         public ObservableCollection<Item> Items { get; }
+
+        // Retrieves items from the data service based on the query
         public Command LoadItemsCommand { get; }
+
+        // Adds an item to the list (obsolete, but template for going to a non-taskbar page)
         public Command AddItemCommand { get; }
+
+        // Defines behaviour if an item in the list is tapped (not currently used)
         public Command<Item> ItemTapped { get; }
+
+        // Adds an item (by ID) to the comparison
         public Command<string> AddToComparison { get; }
 
+        // Variable storing the search bar text
         public string query;
 
         public ItemsViewModel()
         {
             Title = "Search";
+
             Items = new ObservableCollection<Item>();
+
+            //  Command definitions
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
             ItemTapped = new Command<Item>(OnItemSelected);
@@ -34,6 +47,7 @@ namespace EIA.ViewModels
             AddToComparison = new Command<string>(OnAddToComparison);
         }
 
+        // Populates the list to display based on the current query
         async Task ExecuteLoadItemsCommand()
         {
             IsBusy = true;
@@ -75,11 +89,13 @@ namespace EIA.ViewModels
             }
         }
 
+        // Navigates to the 'add item' page
         private async void OnAddItem(object obj)
         {
             await Shell.Current.GoToAsync(nameof(NewItemPage));
         }
 
+        // Navigates to the item details page (not in use currently)
         async void OnItemSelected(Item item)
         {
             if (item == null)
@@ -89,12 +105,14 @@ namespace EIA.ViewModels
             await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(ItemDetailViewModel.ItemId)}={item.Id}");
         }
 
+        // Updates the current query based on the search bar text (when enter/search is pressed) (not in use currently)
         void OnSearch(object sender, EventArgs e)
         {
             SearchBar searchBar = (SearchBar)sender;
             query = searchBar.Text;
         }
 
+        // Adds an item to the current comparison in the data service
         void OnAddToComparison(string ItemName)
         {
             string ItemID = DataService.GetIDByName(ItemName);
