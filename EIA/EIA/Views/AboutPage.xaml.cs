@@ -20,6 +20,7 @@ namespace EIA.Views
         {
             base.OnAppearing();
             _viewModel.OnAppearing();
+            itemComparison.ItemsSource = DataService.CurrentComparison;
         }
     }
 }

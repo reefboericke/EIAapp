@@ -19,8 +19,8 @@ namespace EIA.ViewModels
         // Retrieves items from the data service based on the query
         public Command LoadItemsCommand { get; }
 
-        // Adds an item to the list (obsolete, but template for going to a non-taskbar page)
-        public Command AddItemCommand { get; }
+        // Empties the current comparison
+        public Command ClearComparison { get; }
 
         // Defines behaviour if an item in the list is tapped (not currently used)
         public Command<Item> ItemTapped { get; }
@@ -42,7 +42,7 @@ namespace EIA.ViewModels
 
             ItemTapped = new Command<Item>(OnItemSelected);
 
-            AddItemCommand = new Command(OnAddItem);
+            ClearComparison = new Command(OnClearComparison);
 
             AddToComparison = new Command<string>(OnAddToComparison);
         }
@@ -89,10 +89,10 @@ namespace EIA.ViewModels
             }
         }
 
-        // Navigates to the 'add item' page
-        private async void OnAddItem(object obj)
+        // Clears the current comparison
+        void OnClearComparison()
         {
-            await Shell.Current.GoToAsync(nameof(NewItemPage));
+            // Do later
         }
 
         // Navigates to the item details page (not in use currently)
@@ -115,6 +115,7 @@ namespace EIA.ViewModels
         // Adds an item to the current comparison in the data service
         void OnAddToComparison(string ItemName)
         {
+            DataService.AddToComparison("test id");
             string ItemID = DataService.GetIDByName(ItemName);
             if(ItemID != null)
             {

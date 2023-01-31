@@ -20,9 +20,7 @@ namespace EIA.ViewModels
         // Used to navigate to the search page
         public ICommand GoToItems { get; }
 
-        // Contains the objects currently being compared - change to contain Item objects, and be accessible from items page
-        ObservableCollection<String> currentComparison = new ObservableCollection<string>();
-        public ObservableCollection<String> CurrentComparison {  get { return currentComparison; } }
+        public Command Refresh { get; }
 
         public AboutViewModel()
         {
@@ -31,21 +29,26 @@ namespace EIA.ViewModels
             // Define commands used on the about page
             OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamarin-quickstart"));
             GoToItems = new Command(OnGoToSearch);
-
-            // For testing comparison display
-            currentComparison.Add("Test");
+            Refresh = new Command(OnRefresh);
         }
 
         // Defines behaviour for when the view is opened
         public void OnAppearing()
         {
             IsBusy = true;
+
+            // iterate through data service current cmoparison and add titles from it to currentcomparison
         }
 
         // Navigates to search page
         async void OnGoToSearch()
         {
             await Shell.Current.GoToAsync("//ItemsPage");
+        }
+
+        public void OnRefresh()
+        {
+            //itemComparison.ItemsSource = DataService.CurrentComparison;
         }
     }
 }

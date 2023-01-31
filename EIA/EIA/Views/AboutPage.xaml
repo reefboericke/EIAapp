@@ -15,6 +15,10 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Refresh" Command="{Binding Refresh}"/>
+    </ContentPage.ToolbarItems>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -43,11 +47,10 @@
         </ScrollView>
         <!--Current Comparison View-->
         <ListView Grid.Row="2"
-                x:Name="itemComparison"
-                ItemsSource="{Binding CurrentComparison}">
+                x:Name="itemComparison">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding }"/>
+                    <TextCell Text="{Binding Text}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
