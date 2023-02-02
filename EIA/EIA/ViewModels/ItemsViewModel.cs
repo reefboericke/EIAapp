@@ -113,14 +113,13 @@ namespace EIA.ViewModels
         }
 
         // Adds an item to the current comparison in the data service
-        void OnAddToComparison(string ItemName)
+        void OnAddToComparison(string ItemID)
         {
             DataService.AddToComparison("test id");
-            string ItemID = DataService.GetIDByName(ItemName);
-            if(ItemID != null)
-            {
-                DataService.AddToComparison(ItemID);
-            }
+
+            DataService.AddToComparison(ItemID);
+
+            DataService.CurrentComparison.Add(new Item { Id = Guid.NewGuid().ToString(), Text = "Car", Description = "Car." });
         }
     }
 }

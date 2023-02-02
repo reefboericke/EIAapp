@@ -47,7 +47,7 @@ namespace EIA.Views
         // Reacts to an item in the search results being tapped
         private void searchResults_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            Title = e.Item.ToString();
+            //Title = e.Item.ToString();
         }
     }
 }

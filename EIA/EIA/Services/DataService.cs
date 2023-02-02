@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using EIA.Models;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace SearchBarDemos.Services
 {
@@ -22,7 +23,7 @@ namespace SearchBarDemos.Services
         };
 
         // Searches the database and returns the matching items (currently just returns the name, to be fixed later)
-        public static List<string> GetSearchResults(string queryString)
+        public static List<Item> GetSearchResults(string queryString)
         {
             List<string> ItemNames = new List<string>();
             foreach (Item item in Items)
@@ -30,7 +31,7 @@ namespace SearchBarDemos.Services
                 ItemNames.Add(item.Text);
             }
             var normalizedQuery = queryString?.ToLower() ?? "";
-            return ItemNames.Where(f => f.ToLowerInvariant().Contains(normalizedQuery)).ToList();
+            return Items.Where(f => f.Text.ToLowerInvariant().Contains(normalizedQuery)).ToList();
         }
 
         // Finds the assigned ID of an item based on its name (currently used because the search bar only returns the name)
@@ -53,7 +54,7 @@ namespace SearchBarDemos.Services
             {
                 if (item.Id == ItemID)
                 {
-                    CurrentComparison.Add(item);
+                    CurrentComparison.Add(new Item { Id = item.Id, Text = item.Text, Description = item.Description });
                 }
             }
         }
