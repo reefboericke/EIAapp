@@ -20,6 +20,7 @@ namespace EIA.Views
         {
             base.OnAppearing();
             _viewModel.OnAppearing();
+            //DataService.AddToComparison(DataService.GetIDByName("Electric Car"));
             itemComparison.ItemsSource = DataService.CurrentComparison;
         }
     }
