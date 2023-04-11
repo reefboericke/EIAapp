@@ -3,6 +3,7 @@ using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using SearchBarDemos.Services;
 
 namespace EIA.ViewModels
 {
@@ -39,11 +40,15 @@ namespace EIA.ViewModels
             }
         }
 
+        public ItemDetailViewModel(string itemID)
+        {
+            ItemId = itemID;
+        }
         public async void LoadItemId(string itemId)
         {
             try
             {
-                var item = await DataStore.GetItemAsync(itemId);
+                var item = DataService.GetItem(itemId);
                 Id = item.Id;
                 Text = item.Text;
                 Description = item.Description;

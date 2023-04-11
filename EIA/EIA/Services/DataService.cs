@@ -13,7 +13,8 @@ namespace SearchBarDemos.Services
         public static List<Item> Items { get; } = new List<Item>
         {
             new Item { Id = Guid.NewGuid().ToString(), Text = "Internal Combustion Engine Car", Description="Car powered by ICE using fossil fuel." },
-            new Item { Id = Guid.NewGuid().ToString(), Text = "Electric Car", Description="Car powered by electric motor using various electricity sources." }
+            new Item { Id = Guid.NewGuid().ToString(), Text = "Electric Car", Description="Car powered by electric motor using various electricity sources." },
+            new Item { Id = "test id", Text = "Item Tapped Test", Description = "Test #1000000" }
         };
 
         // Maintains current items being compared
@@ -57,6 +58,18 @@ namespace SearchBarDemos.Services
                     CurrentComparison.Add(new Item { Id = item.Id, Text = item.Text, Description = item.Description });
                 }
             }
+        }
+
+        public static Item GetItem(string ItemID)
+        {
+            foreach (Item item in Items)
+            {
+                if (item.Id == ItemID)
+                {
+                    return item;
+                }
+            }
+            return null;
         }
     }
 }

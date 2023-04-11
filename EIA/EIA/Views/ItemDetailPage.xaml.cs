@@ -6,10 +6,10 @@ namespace EIA.Views
 {
     public partial class ItemDetailPage : ContentPage
     {
-        public ItemDetailPage()
+        public ItemDetailPage(string itemID)
         {
             InitializeComponent();
-            BindingContext = new ItemDetailViewModel();
+            BindingContext = new ItemDetailViewModel(itemID);
         }
     }
 }
