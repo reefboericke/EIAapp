@@ -2,15 +2,33 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EIA.Views.ItemDetailPage"
-             Title="{Binding Title}">
+             Title="{Binding Text}">
 
     <StackLayout Spacing="20" Padding="15">
-        <Label Text="{Binding Text}" FontSize="Large"/>
-        <Label Text="Details" FontSize="Medium" />
         <Label Text="{Binding Description}" FontSize="Small"/>
         <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="0">
-            <Label Text="Water Usage:"/>
-            <Label Text="{Binding WaterScore}" Margin="0,-7,0,0"/>
+            <Label Text="Water Usage: "/>
+            <Label Text="{Binding WaterScore, StringFormat='{0:D2}'}" />
+        </StackLayout>
+        <StackLayout Grid.Row="2" Orientation="Horizontal" Spacing="0">
+            <Label Text="Air Quality: "/>
+            <Label Text="{Binding AirScore, StringFormat='{0:D2}'}" />
+        </StackLayout>
+        <StackLayout Grid.Row="3" Orientation="Horizontal" Spacing="0">
+            <Label Text="Corporate Social Impact: "/>
+            <Label Text="{Binding CorpSocialScore, StringFormat='{0:D2}'}" />
+        </StackLayout>
+        <StackLayout Grid.Row="4" Orientation="Horizontal" Spacing="0">
+            <Label Text="Ecological Impact: "/>
+            <Label Text="{Binding EcologyScore, StringFormat='{0:D2}'}" />
+        </StackLayout>
+        <StackLayout Grid.Row="5" Orientation="Horizontal" Spacing="0">
+            <Label Text="Lifetime Emissions: "/>
+            <Label Text="{Binding LifetimeEmissionsScore, StringFormat='{0:D2}'}" />
+        </StackLayout>
+        <StackLayout Grid.Row="6" Orientation="Horizontal" Spacing="0">
+            <Label Text="Embedded Emissions: "/>
+            <Label Text="{Binding EmbeddedEmissionsScore, StringFormat='{0:D2}'}" />
         </StackLayout>
         <Button Margin="0,10,0,0" Text="Add to comparison" Font="Bold, 20"
                         Command="{Binding AddToComparison}"
