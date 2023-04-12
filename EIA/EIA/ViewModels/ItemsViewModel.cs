@@ -92,7 +92,7 @@ namespace EIA.ViewModels
         // Clears the current comparison
         void OnClearComparison()
         {
-            // Do later
+            DataService.ClearComparison();
         }
 
         // Navigates to the item details page (not in use currently)

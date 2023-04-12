@@ -15,6 +15,8 @@ namespace EIA.ViewModels
         private string description;
         public string Id { get; set; }
 
+        public Command AddToComparison { get; }
+
         public string Text
         {
             get => text;
@@ -43,8 +45,10 @@ namespace EIA.ViewModels
         public ItemDetailViewModel(string itemID)
         {
             ItemId = itemID;
+
+            AddToComparison = new Command(OnAddToComparison);
         }
-        public async void LoadItemId(string itemId)
+        public void LoadItemId(string itemId)
         {
             try
             {
@@ -57,6 +61,11 @@ namespace EIA.ViewModels
             {
                 Debug.WriteLine("Failed to Load Item");
             }
+        }
+
+        public void OnAddToComparison()
+        {
+            DataService.AddToComparison(itemId);
         }
     }
 }

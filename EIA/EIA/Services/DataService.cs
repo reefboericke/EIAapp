@@ -55,7 +55,7 @@ namespace SearchBarDemos.Services
             {
                 if (item.Id == ItemID)
                 {
-                    CurrentComparison.Add(new Item { Id = item.Id, Text = item.Text, Description = item.Description });
+                    CurrentComparison.Add(item);
                 }
             }
         }
@@ -70,6 +70,11 @@ namespace SearchBarDemos.Services
                 }
             }
             return null;
+        }
+
+        public static void ClearComparison()
+        {
+            CurrentComparison.Clear();
         }
     }
 }
