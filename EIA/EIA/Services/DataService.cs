@@ -12,15 +12,30 @@ namespace SearchBarDemos.Services
         // Defines list of objects that can be searched for. In the future change this to source from external database/internet source
         public static List<Item> Items { get; } = new List<Item>
         {
-            new Item { Id = Guid.NewGuid().ToString(), Text = "Internal Combustion Engine Car", Description="Car powered by ICE using fossil fuel." },
-            new Item { Id = Guid.NewGuid().ToString(), Text = "Electric Car", Description="Car powered by electric motor using various electricity sources." },
-            new Item { Id = "test id", Text = "Item Tapped Test", Description = "Test #1000000" }
+            new Item { Id = Guid.NewGuid().ToString(), 
+                Text = "Ford Fiesta", 
+                Description="A small car, powered by an internal combustion engine, produced by Ford Motors",
+                AirQualityScore=4,
+                CorporateSocialScore=5,
+                EcologyScore=3,
+                EmbeddedEmissionsScore=5,
+                LifetimeEmissionsScore=2,
+                WaterScore=8},
+            new Item { Id = Guid.NewGuid().ToString(),
+                Text = "Tesla Roadster",
+                Description="High end electric car, produced by Tesla.",
+                AirQualityScore=10,
+                CorporateSocialScore=7,
+                EcologyScore=2,
+                EmbeddedEmissionsScore=4,
+                LifetimeEmissionsScore=9,
+                WaterScore=3}
         };
 
         // Maintains current items being compared
         public static List<Item> CurrentComparison { get; } = new List<Item>
         {
-            new Item { Id = Guid.NewGuid().ToString(), Text = "Test", Description="Test desc"}
+            //Empty to begin with
         };
 
         // Searches the database and returns the matching items (currently just returns the name, to be fixed later)
