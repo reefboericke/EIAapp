@@ -42,7 +42,12 @@
                 x:Name="itemComparison">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Text}"/>
+                    <ViewCell>
+                        <Grid>
+                            <Label Grid.Row="1" Text="{Binding Text}" FontSize="Medium"/>
+                            <Label Grid.Row="2" Text="{Binding WaterScore}"/>
+                        </Grid>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
