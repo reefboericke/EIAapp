@@ -23,15 +23,6 @@ namespace EIA.Views
             _viewModel.OnAppearing();
             //DataService.AddToComparison(DataService.GetIDByName("Electric Car"));
             itemComparison.ItemsSource = DataService.CurrentComparison;
-            if(DataService.CurrentComparison.Any())
-            {
-                explText.IsVisible = false;
-                findItemButton.IsVisible = false;
-            } else
-            {
-                explText.IsVisible  = true;
-                findItemButton.IsVisible = true;
-            }
         }
     }
 }
