@@ -4,6 +4,7 @@ using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using SearchBarDemos.Services;
+using System.Linq;
 
 namespace EIA.Views
 {
@@ -22,6 +23,15 @@ namespace EIA.Views
             _viewModel.OnAppearing();
             //DataService.AddToComparison(DataService.GetIDByName("Electric Car"));
             itemComparison.ItemsSource = DataService.CurrentComparison;
+            if(DataService.CurrentComparison.Any())
+            {
+                explText.IsVisible = false;
+                findItemButton.IsVisible = false;
+            } else
+            {
+                explText.IsVisible  = true;
+                findItemButton.IsVisible = true;
+            }
         }
     }
 }
