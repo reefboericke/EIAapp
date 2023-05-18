@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EIA.Views.AboutPage"
              xmlns:vm="clr-namespace:EIA.ViewModels"
+             x:Class="EIA.Views.AboutPage"
              Title="{Binding Title}">
     
     <ContentPage.BindingContext>
@@ -21,25 +21,61 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="10*" />
         </Grid.RowDefinitions>
-        <!--Main view on home page-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
         <!--Takes user to the search page-->
-        <Button Margin="5,5,5,5" Text="Search for items" Font="Bold, 20" Grid.Row="0"
+        <Button Margin="5,5,5,5" Text="Search for items" Font="Bold, 20" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="7"
                         Command="{Binding GoToItems}"
                         BackgroundColor="{StaticResource Primary}"
                         TextColor="White" 
                         IsVisible="True"
                         x:Name="findItemButton"/>
         <!--Current Comparison View-->
-        <ListView Grid.Row="1"
-                x:Name="itemComparison">
+        <!--Make this formatted better for comparison-->
+       
+        <Label Grid.Row="1" Grid.Column="0" Text="Item" FontSize="Medium" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
+        <Label Grid.Row="1" Grid.Column="1" Text="Water"/>
+        <Label Grid.Row="1" Grid.Column="2" Text="Air"/>
+        <Label Grid.Row="1" Grid.Column="3" Text="ESG"/>
+        <Label Grid.Row="1" Grid.Column="4" Text="Ecological"/>
+        <Label Grid.Row="1" Grid.Column="5" Text="Embedded CO2"/>
+        <Label Grid.Row="1" Grid.Column="6" Text="Lifetime CO2"/>
+        
+        <ListView Grid.Row="2"
+            Grid.ColumnSpan="7"
+            VerticalOptions="Start"
+            x:Name="itemComparison">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <Grid>
-                            <Label Grid.Row="1" Text="{Binding Text}" FontSize="Medium"/>
-                            <Label Grid.Row="2" Text="{Binding WaterScore}"/>
+                             <Grid.ColumnDefinitions>
+                                 <ColumnDefinition Width="2*"/>
+                                 <ColumnDefinition Width="1*"/>
+                                 <ColumnDefinition Width="1*"/>
+                                 <ColumnDefinition Width="1*"/>
+                                 <ColumnDefinition Width="1*"/>
+                                 <ColumnDefinition Width="1*"/>
+                                 <ColumnDefinition Width="1*"/>
+                             </Grid.ColumnDefinitions>
+                             <Label Grid.Row="2" Grid.Column="0" Text="{Binding Text}" FontSize="Medium" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"/>
+                             <Label Grid.Row="2" Grid.Column="1" Text="{Binding WaterScore}"/>
+                             <Label Grid.Row="2" Grid.Column="2" Text="{Binding AirQualityScore}"/>
+                             <Label Grid.Row="2" Grid.Column="3" Text="{Binding CorporateSocialScore}"/>
+                             <Label Grid.Row="2" Grid.Column="4" Text="{Binding EcologyScore}"/>
+                             <Label Grid.Row="2" Grid.Column="5" Text="{Binding EmbeddedEmissionsScore}"/>
+                             <Label Grid.Row="2" Grid.Column="6" Text="{Binding LifetimeEmissionsScore}"/>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
