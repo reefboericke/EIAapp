@@ -24,5 +24,10 @@ namespace EIA.Views
             //DataService.AddToComparison(DataService.GetIDByName("Electric Car"));
             itemComparison.ItemsSource = DataService.CurrentComparison;
         }
+
+        private void itemComparison_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            itemComparison.SelectedItem = null;
+        }
     }
 }

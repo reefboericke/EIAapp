@@ -29,7 +29,16 @@ namespace SearchBarDemos.Services
                 EcologyScore=2,
                 EmbeddedEmissionsScore=4,
                 LifetimeEmissionsScore=9,
-                WaterScore=3}
+                WaterScore=3},
+            new Item { Id = Guid.NewGuid().ToString(),
+                Text = "Microsoft Surface Studio",
+                Description="Premium 2-in-1 Laptop.",
+                AirQualityScore=10,
+                CorporateSocialScore=7,
+                EcologyScore=6,
+                EmbeddedEmissionsScore=2,
+                LifetimeEmissionsScore=8,
+                WaterScore=2}
         };
 
         // Maintains current items being compared

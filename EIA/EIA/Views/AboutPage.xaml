@@ -54,28 +54,33 @@
         
         <ListView Grid.Row="2"
             Grid.ColumnSpan="7"
-            VerticalOptions="Start"
+            VerticalOptions="Center"
+            HasUnevenRows="True"
+            ItemSelected="itemComparison_ItemSelected"
             x:Name="itemComparison">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <Grid>
-                             <Grid.ColumnDefinitions>
-                                 <ColumnDefinition Width="2*"/>
-                                 <ColumnDefinition Width="1*"/>
-                                 <ColumnDefinition Width="1*"/>
-                                 <ColumnDefinition Width="1*"/>
-                                 <ColumnDefinition Width="1*"/>
-                                 <ColumnDefinition Width="1*"/>
-                                 <ColumnDefinition Width="1*"/>
-                             </Grid.ColumnDefinitions>
-                             <Label Grid.Row="2" Grid.Column="0" Text="{Binding Text}" FontSize="Medium" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"/>
-                             <Label Grid.Row="2" Grid.Column="1" Text="{Binding WaterScore}"/>
-                             <Label Grid.Row="2" Grid.Column="2" Text="{Binding AirQualityScore}"/>
-                             <Label Grid.Row="2" Grid.Column="3" Text="{Binding CorporateSocialScore}"/>
-                             <Label Grid.Row="2" Grid.Column="4" Text="{Binding EcologyScore}"/>
-                             <Label Grid.Row="2" Grid.Column="5" Text="{Binding EmbeddedEmissionsScore}"/>
-                             <Label Grid.Row="2" Grid.Column="6" Text="{Binding LifetimeEmissionsScore}"/>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                             <Label Grid.Row="0" Grid.Column="0" Text="{Binding Text}" FontSize="20" HorizontalTextAlignment="Start" VerticalTextAlignment="Start"/>
+                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding WaterScore}" FontSize="20" VerticalTextAlignment="Center"/>
+                            <Label Grid.Row="0" Grid.Column="2" Text="{Binding AirQualityScore}" FontSize="20" VerticalTextAlignment="Center"/>
+                            <Label Grid.Row="0" Grid.Column="3" Text="{Binding CorporateSocialScore}" FontSize="20" VerticalTextAlignment="Center"/>
+                            <Label Grid.Row="0" Grid.Column="4" Text="{Binding EcologyScore}" FontSize="20" VerticalTextAlignment="Center"/>
+                            <Label Grid.Row="0" Grid.Column="5" Text="{Binding EmbeddedEmissionsScore}" FontSize="20" VerticalTextAlignment="Center"/>
+                            <Label Grid.Row="0" Grid.Column="6" Text="{Binding LifetimeEmissionsScore}" FontSize="20" VerticalTextAlignment="Center"/>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
