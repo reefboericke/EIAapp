@@ -10,6 +10,7 @@ namespace SearchBarDemos.Services
     public static class DataService
     {
         // Defines list of objects that can be searched for. In the future change this to source from external database/internet source
+        // Change this to real numbers, and generate the relative values in the comparison code
         public static List<Item> Items { get; } = new List<Item>
         {
             new Item { Id = Guid.NewGuid().ToString(), 
