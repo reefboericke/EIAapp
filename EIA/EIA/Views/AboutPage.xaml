@@ -21,9 +21,10 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="10*" />
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
@@ -44,13 +45,13 @@
         <!--Current Comparison View-->
         <!--Make this formatted better for comparison-->
        
-        <Label Grid.Row="1" Grid.Column="0" Text="Item" FontSize="Medium" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
-        <Label Grid.Row="1" Grid.Column="1" Text="Water"/>
-        <Label Grid.Row="1" Grid.Column="2" Text="Air"/>
-        <Label Grid.Row="1" Grid.Column="3" Text="ESG"/>
-        <Label Grid.Row="1" Grid.Column="4" Text="Ecological"/>
-        <Label Grid.Row="1" Grid.Column="5" Text="Embedded CO2"/>
-        <Label Grid.Row="1" Grid.Column="6" Text="Lifetime CO2"/>
+        <Label Grid.Row="1" Grid.Column="0" Text="Item" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
+        <Label Grid.Row="1" Grid.Column="1" Text="Water" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+        <Label Grid.Row="1" Grid.Column="2" Text="Air" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+        <Label Grid.Row="1" Grid.Column="3" Text="ESG" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+        <Label Grid.Row="1" Grid.Column="4" Text="Ecological" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+        <Label Grid.Row="1" Grid.Column="5" Text="Embedded CO2" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+        <Label Grid.Row="1" Grid.Column="6" Text="Lifetime CO2" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
         
         <ListView Grid.Row="2"
             Grid.ColumnSpan="7"
@@ -74,13 +75,32 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
-                             <Label Grid.Row="0" Grid.Column="0" Text="{Binding Text}" FontSize="20" HorizontalTextAlignment="Start" VerticalTextAlignment="Start"/>
-                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding WaterScore}" FontSize="20" VerticalTextAlignment="Center"/>
-                            <Label Grid.Row="0" Grid.Column="2" Text="{Binding AirQualityScore}" FontSize="20" VerticalTextAlignment="Center"/>
-                            <Label Grid.Row="0" Grid.Column="3" Text="{Binding CorporateSocialScore}" FontSize="20" VerticalTextAlignment="Center"/>
-                            <Label Grid.Row="0" Grid.Column="4" Text="{Binding EcologyScore}" FontSize="20" VerticalTextAlignment="Center"/>
-                            <Label Grid.Row="0" Grid.Column="5" Text="{Binding EmbeddedEmissionsScore}" FontSize="20" VerticalTextAlignment="Center"/>
-                            <Label Grid.Row="0" Grid.Column="6" Text="{Binding LifetimeEmissionsScore}" FontSize="20" VerticalTextAlignment="Center"/>
+                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Text}" FontSize="20" HorizontalTextAlignment="Start" VerticalTextAlignment="Start"/>
+                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding Scores[5]}" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" BackgroundColor="{Binding Colors[5]}"/>
+                            <Label Grid.Row="0" Grid.Column="2" Text="{Binding Scores[0]}" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" BackgroundColor="{Binding Colors[0]}"/>
+                            <Label Grid.Row="0" Grid.Column="3" Text="{Binding Scores[1]}" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" BackgroundColor="{Binding Colors[1]}"/>
+                            <Label Grid.Row="0" Grid.Column="4" Text="{Binding Scores[2]}" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" BackgroundColor="{Binding Colors[2]}"/>
+                            <Label Grid.Row="0" Grid.Column="5" Text="{Binding Scores[3]}" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" BackgroundColor="{Binding Colors[3]}"/>
+                            <Label Grid.Row="0" Grid.Column="6" Text="{Binding Scores[4]}" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" BackgroundColor="{Binding Colors[4]}"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView Grid.Row="3"
+            Grid.ColumnSpan="7"
+            VerticalOptions="Center"
+            HasUnevenRows="True"
+            x:Name="itemDetails">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Text}" FontSize="20" HorizontalTextAlignment="Start" VerticalTextAlignment="Start"/>
+                            <Label Grid.Row="1" Grid.Column="0" Text="{Binding Description}" FontSize="12" VerticalTextAlignment="Center"/>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>

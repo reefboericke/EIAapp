@@ -11,11 +11,15 @@ namespace SearchBarDemos.Services
     {
         // Defines list of objects that can be searched for. In the future change this to source from external database/internet source
         // Change this to real numbers, and generate the relative values in the comparison code
+        // 5 step color scale: Green: 33FF33 (10-9), CCFFCC (8-7), FFFF33 (6-5), FF9933 (4-3), FF3333 (2-1): Red
+        // Scores : {Air Pollution, Corporate ESG, Ecological Impact, Embedded Emissions, Lifetime Emissions, Water Pollution}
         public static List<Item> Items { get; } = new List<Item>
         {
-            new Item { Id = Guid.NewGuid().ToString(), 
-                Text = "Ford Fiesta", 
+            new Item { Id = Guid.NewGuid().ToString(),
+                Text = "Ford Fiesta",
                 Description="A small car, powered by an internal combustion engine, produced by Ford Motors",
+                Scores = new List<float>{4,5,3,5,2,8},
+                Colors = new List<string>{"#FF9933", "#FFFF33", "#FF9933", "#FFFF33", "#FF3333", "#CCFFCC"},
                 AirQualityScore=4,
                 CorporateSocialScore=5,
                 EcologyScore=3,
@@ -25,6 +29,8 @@ namespace SearchBarDemos.Services
             new Item { Id = Guid.NewGuid().ToString(),
                 Text = "Tesla Roadster",
                 Description="High end electric car, produced by Tesla.",
+                Scores = new List<float>{10,7,2,4,9,3},
+                Colors = new List<string>{"#33FF33", "#CCFFCC", "#FF3333", "#FF9933", "#33FF33", "#FF9933"},
                 AirQualityScore=10,
                 CorporateSocialScore=7,
                 EcologyScore=2,
@@ -34,12 +40,14 @@ namespace SearchBarDemos.Services
             new Item { Id = Guid.NewGuid().ToString(),
                 Text = "Microsoft Surface Studio",
                 Description="Premium 2-in-1 Laptop.",
+                Scores = new List<float>{10,7,6,2,8,6},
+                Colors = new List<string>{"#33FF33", "#CCFFCC", "#FF3333", "#FF3333", "#CCFFCC", "#FFFF33"},
                 AirQualityScore=10,
                 CorporateSocialScore=7,
                 EcologyScore=6,
                 EmbeddedEmissionsScore=2,
                 LifetimeEmissionsScore=8,
-                WaterScore=2}
+                WaterScore=6}
         };
 
         // Maintains current items being compared
