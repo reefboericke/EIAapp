@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using EIA.Models;
@@ -25,7 +26,9 @@ namespace SearchBarDemos.Services
                 EcologyScore=3,
                 EmbeddedEmissionsScore=5,
                 LifetimeEmissionsScore=2,
-                WaterScore=8},
+                WaterScore=8,
+                Notes="1. CO2 per km is xxx and average total usage is yyy",
+                Category="Car"},
             new Item { Id = Guid.NewGuid().ToString(),
                 Text = "Tesla Roadster",
                 Description="High end electric car, produced by Tesla.",
@@ -36,7 +39,11 @@ namespace SearchBarDemos.Services
                 EcologyScore=2,
                 EmbeddedEmissionsScore=4,
                 LifetimeEmissionsScore=9,
-                WaterScore=3},
+                WaterScore=3,
+                Notes="1. CO2 per km depends on how the electricity was generated; we have assumed US generation proportions \n 2. The rare earth metals that are" +
+                " required for the batteries have serious impacts on water supplies and local ecosystems \n 3. The CEO Elon Musk is a controversial figure" +
+                " politically and appears to support groups who are against fighting climate change",
+                Category="Car"},
             new Item { Id = Guid.NewGuid().ToString(),
                 Text = "Microsoft Surface Studio",
                 Description="Premium 2-in-1 Laptop.",
@@ -47,7 +54,10 @@ namespace SearchBarDemos.Services
                 EcologyScore=6,
                 EmbeddedEmissionsScore=2,
                 LifetimeEmissionsScore=8,
-                WaterScore=6}
+                WaterScore=6,
+                Notes="1. Ongoing emissions depend on how the electricty was generated, we have assumed US generation proportions \n 2. Materials required for" +
+                " batteries and chips in this device impact water supplies and local ecosystems",
+                Category="Electronics"},
         };
 
         // Maintains current items being compared

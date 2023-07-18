@@ -19,6 +19,7 @@ namespace EIA.ViewModels
         private float ecologyScore;
         private float lifetimeEmissionsScore;
         private float embeddedEmissionsScore;
+        private string notes;
         public string Id { get; set; }
 
         public Command AddToComparison { get; }
@@ -50,7 +51,7 @@ namespace EIA.ViewModels
         public float CorpSocialScore
         {
             get => corpSocialScore;
-            set => SetProperty(ref  corpSocialScore, value);
+            set => SetProperty(ref corpSocialScore, value);
         }
 
         public float EcologyScore
@@ -61,7 +62,7 @@ namespace EIA.ViewModels
 
         public float LifetimeEmissionsScore
         {
-            get => lifetimeEmissionsScore; 
+            get => lifetimeEmissionsScore;
             set => SetProperty(ref lifetimeEmissionsScore, value);
         }
 
@@ -69,6 +70,11 @@ namespace EIA.ViewModels
         {
             get => embeddedEmissionsScore;
             set => SetProperty(ref embeddedEmissionsScore, value);
+        }
+        public string Notes
+        {
+            get => notes;
+            set => SetProperty(ref notes, value);
         }
         public string ItemId
         {
@@ -103,6 +109,7 @@ namespace EIA.ViewModels
                 EcologyScore = item.EcologyScore;
                 LifetimeEmissionsScore = item.LifetimeEmissionsScore;
                 EmbeddedEmissionsScore = item.EmbeddedEmissionsScore;
+                Notes = item.Notes;
             }
             catch (Exception)
             {
