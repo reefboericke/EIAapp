@@ -36,30 +36,6 @@ namespace EIA.ViewModels
             set => SetProperty(ref description, value);
         }
 
-        public float WaterScore
-        {
-            get => waterScore;
-            set => SetProperty(ref waterScore, value);
-        }
-
-        public float AirScore
-        {
-            get => airScore;
-            set => SetProperty(ref airScore, value);
-        }
-
-        public float CorpSocialScore
-        {
-            get => corpSocialScore;
-            set => SetProperty(ref corpSocialScore, value);
-        }
-
-        public float EcologyScore
-        {
-            get => ecologyScore;
-            set => SetProperty(ref ecologyScore, value);
-        }
-
         public float LifetimeEmissionsScore
         {
             get => lifetimeEmissionsScore;
@@ -103,10 +79,6 @@ namespace EIA.ViewModels
                 Id = item.Id;
                 Text = item.Text;
                 Description = item.Description;
-                WaterScore = item.WaterScore;
-                AirScore = item.AirQualityScore;
-                CorpSocialScore = item.CorporateSocialScore;
-                EcologyScore = item.EcologyScore;
                 LifetimeEmissionsScore = item.LifetimeEmissionsScore;
                 EmbeddedEmissionsScore = item.EmbeddedEmissionsScore;
                 Notes = item.Notes;
