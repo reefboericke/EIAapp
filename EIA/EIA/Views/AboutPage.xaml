@@ -41,9 +41,9 @@
         <!--Current Comparison View-->
         <!--Make this formatted better for comparison-->
 
-        <Label Grid.Row="1" Grid.Column="0" Text="Item" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Left"/>
-        <Label Grid.Row="1" Grid.Column="1" Text="Embedded CO2" VerticalOptions="Center" HorizontalTextAlignment="Center"/>
-        <Label Grid.Row="1" Grid.Column="2" Text="Lifetime CO2" VerticalOptions="Center" HorizontalTextAlignment="Center"/>
+        <Label Grid.Row="1" Grid.Column="0" Text="Item" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+        <Label Grid.Row="1" Grid.Column="1" Text="Embedded CO2" VerticalOptions="Center" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+        <Label Grid.Row="1" Grid.Column="2" Text="Lifetime CO2" VerticalOptions="Center" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
         
         <ListView Grid.Row="2"
             Grid.ColumnSpan="3"
@@ -63,8 +63,8 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
-                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Text}" 
-                                   FontSize="20" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" Margin="0,5,0,5"/>
+                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Text}"
+                                   FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,5,0,5"/>
                             <Frame CornerRadius="100" Grid.Row="0" Grid.Column="1" BackgroundColor="{Binding Colors[0]}" Margin="0,10,0,10">
                                 <Label Text="{Binding Scores[0]}"
                                        FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,10,0,10"/>
@@ -90,7 +90,8 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
-                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Text}" FontSize="20" HorizontalTextAlignment="Start" VerticalTextAlignment="Start"/>
+                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Text}" FontSize="20" HorizontalTextAlignment="Start" 
+                                   FontAttributes="Bold" VerticalTextAlignment="Start"/>
                             <Label Grid.Row="1" Grid.Column="0" Text="{Binding Notes}" FontSize="12" VerticalTextAlignment="Center"/>
                         </Grid>
                     </ViewCell>
